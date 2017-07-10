@@ -30,7 +30,7 @@ for i in tosearch:
     sortedlistslv = sortedlist
     index = (len(sortedlistslv)/2)
     middleval = sortedlistslv[index]
-    while middleval != i:
+    while int(middleval) != int(i):
         if len(sortedlistslv) == 1:
             if middleval != i:
                 posmat.append("LOL")
@@ -38,15 +38,15 @@ for i in tosearch:
             else:
                 posmat.append(middleval)
                 break
-        if middleval < i:
+        if int(middleval) < int(i):
             sortedlistslv = sortedlistslv[index:]
             index = (len(sortedlistslv)/2)
             middleval = sortedlistslv[index]
-        elif middleval > i:
+        elif int(middleval) > int(i):
             sortedlistslv = sortedlistslv[:index]
             index = (len(sortedlistslv)/2)
             middleval = sortedlistslv[index]
-    if middleval == i:
+    if int(middleval) == int(i):
         posmat.append(middleval)
 final = []
 for i in posmat:
@@ -54,10 +54,8 @@ for i in posmat:
         final.append("-1")
     else:
         final.append(str(posdic[i]))
-print len(final)
-print numsorted
 finalt = " ".join(final)                
-foutput.write(True)
+foutput.write(finalt)
 fnumnew = open('fileprogressnumber.txt', 'w')
 fnumnew.write(str(int(num)+1))
 fnumnew.close()
